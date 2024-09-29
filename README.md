@@ -1,2 +1,2 @@
-# jessidramirez.github.io/HOME.html
+# jessidramirez.github.io
 Proyecto de FrontEnd
