@@ -1,0 +1,132 @@
+html,body{
+	min-width: 900px;
+	padding:0; 
+	margin:0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header>*{display:inline-block;}
+header{border-bottom:2px solid black; height: 255px;width: 850px;margin: auto;}
+footer{border-top:2px solid black;bottom:0;height:200px;min-width: 900px;width:100%; background-color:black;top:50px; color: white;}
+footer>p{text-align: center;}
+#contenido{border-top:2px solid black;min-height:700px;width:850px; margin:5px; color: black;margin:auto; margin-top: 10px;}
+#contenido>*{width: 400px; min-height: 500px; display: inline-block;padding: 10px;text-align: justify; vertical-align: middle;}
+a{text-align: center; text-decoration: none;top: 5px; color: rgb(86, 2, 163);}
+#logo{z-index: 100; left:50px; top: 50px; position: relative;background-color: white; background-image:url(../imagen/logo.png);background-size:cover;width:200px;height:200px; border-radius:50%; border:2px solid rgb(128,0,128);}
+#logo:hover{border: #000000 solid 2px;}
+#menu{position: sticky;margin:0;height: 200px;padding:0;top: 50px;z-index: 1;transform: translate(-50px, 0);}
+ol{margin:0;padding:0;}
+#log>ul{
+	position: sticky;
+	margin:0;
+	height: 200px;
+	padding:0;
+	left:200px;
+	top: 50px;
+}
+#menu>ol>li{
+	text-shadow:
+	-1px -1px 1px #aaa,
+	0px 3px 1px rgba(0, 0, 0, 0.5),
+	3px 3px 4px rgba(0, 0, 0, 0.7),
+	0px 0px 6px rgba(0, 0, 0, 0.4);
+	background:rgb(128,0,128);
+	width:500px;
+	height:40px;
+	margin-top:5px; 
+	list-style:none;
+	border-bottom-right-radius:50%;
+	border-top-right-radius:50%;
+	text-align: center;
+	border:2px solid rgba(128,0,128,0.1); 
+	font-style: oblique;
+}
+ol>li>*{text-align:center;color:white;vertical-align:middle; margin-left:100px;}
+#log>ul>li{
+	border-radius: 5px;
+	background-color:white; 
+	width:100px;
+	height:40px;
+	margin-top:5px; 
+	list-style:none;
+	text-align: center;
+	border:2px solid rgba(128,0,128); 
+}
+#tabla>ul>li{
+	border-radius: 5px;
+	background-color:white; 
+	width:100px;
+	height:40px;
+	list-style:none;
+	text-align: center;
+	border:2px solid rgba(128,0,128); 
+}
+#menu>ol>li:hover{
+	z-index:100;
+	border-color: black;
+	transform:translate(20px,0);
+	text-shadow:
+	-1px -1px 1px #810a6d,
+	0px 3px 1px rgba(255, 0, 100, 0.5),
+	3px 3px 4px rgba(255, 0, 100, 0.7),
+	0px 0px 6px rgba(255, 0, 100, 0.4);
+}
+ul>li:hover{
+	border-color: black;
+}
+input{
+	display: block;
+	min-height: 30px;
+	border-radius: 5px;
+	text-align: center;
+	margin-bottom: 5px;
+}
+label{width:120px;float:left;}
+input,textarea{width: 300px;margin: auto;border:1px solid #000000;}
+button{height: 40px;width: 150px;color: #c88bfa;}
+th{text-align: center;}
+
+#sevicio>table {
+	width: 200%;
+	border-collapse: collapse;
+}
+#sevicio>table>tbody>tr>td{
+	border: 1px solid #000000;
+	padding: 8px;
+}
+#sevicio>table>thead>tr>th {
+	background-color: #c88bfa;
+	border:1px solid #000000;
+}
+caption {
+	font-size: 1.5em;
+	margin: 10px;
+}
+input:hover{
+	border: 1px solid #1cc95e;
+}
+#sevicio>*{
+	text-align:left;
+	width: 800px;
+	border: #810a6d solid 1px;
+	border-radius: 5px;
+	padding: 5px;
+}
+.descripcion>ul>li{
+	list-style: disc;
+	margin-left: 35px;
+	padding: 5px;
+}
+.descripcion{
+	padding: 0;
+	display: auto;
+}
+.servicios:active + .descripcion{
+	display: block;
+}
+
+#info-instalaciones,#info-reparaciones{
+	display: none;
+}
+
+
+
