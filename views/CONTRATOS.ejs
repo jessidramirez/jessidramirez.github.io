@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title>HOME</title>
+    <link rel="stylesheet" href="Recursos/css/estilo.css">
+</head>
+<body lang="es-CO" dir="ltr">
+
+<header>
+<div id="logo"></div>
+<!-- menu principal -->
+<div id="menu">
+<ol>
+<li><a href="/">INICIO</a></li>
+<li><a href="GESTION">GESTIÓN DE INFORMACIÓN</a></li>
+<li><a href="CONTACTO">CONTACTO</a></li>
+<li><a href="SERVICIOS">SERVICIOS</a></li>
+</ol>
+</div>
+<!-- menu de login y singin -->
+<div id="log">
+	<%if(!login){%>
+    <ul>
+        <li><a href="LOGIN">INICIAR SESIÓN</a></li>
+        <li><a href="SINGIN">USUARIO NUEVO</a></li>
+    </ul>
+    <%}else{%>
+    <ul>
+        <li><a><%=usuario%> <%=rol%></a></li>
+        <li><a href="logout">CERRAR SESIÓN</a></li>
+    </ul>
+    <%}%>
+</div>
+</header>
+<!-- contenido de la pagina -->
+<div id="contenido">
+<div id="sevicio">
+    <!-- Tabla con datos -->
+	<table>
+        <caption>ORDENES DE SERVICIO</caption>
+        <thead>
+            <tr>
+                <th>Orden</th>
+                <th>Dirección</th>
+                <th>Servicio</th>
+                <th>Tecnico</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+           <!-- Datos de los clientes en una lista -->
+           <% for(var i = 0; i<ordenes.length; i++){%>
+            <tr>
+                <td><%=ordenes[i].Orden%></td>
+                <td><%=ordenes[i].Direccion%></td>
+                <td><%=ordenes[i].Servicio%></td>
+                <td><%=ordenes[i].Tecnico%></td>
+                <td><%=ordenes[i].Fecha%></td>
+            </tr>
+        <%}%>
+        </tbody>
+    </table>
+</div>
+</div>
+
+<footer>
+<ol>
+	<li><a href="HOME">Sobre Nosotros</a></li>
+	<li><a href="CONTACTO">Contacto</a></li>
+	<li><a href="#">Políticas</a></li>
+	<li><a href="#">Protección de datos</a></li>
+	<li><a href="CONTACTO">Soporte</a></li>
+</ol>
+<p>Desarrollado por Jesssid - 2024</p>
+</footer>
+
+</body>
+</html>

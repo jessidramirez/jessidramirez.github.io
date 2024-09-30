@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title>HOME</title>
+	<link rel="stylesheet" href="Recursos/css/estilo.css">
+</head>
+<body lang="es-CO" dir="ltr">
+
+<header>
+	<div id="logo"></div>
+	<!-- menu principal -->
+	<div id="menu">
+	<ol>
+	<li><a href="/">INICIO</a></li>
+	<li><a href="GESTION">GESTIÓN DE INFORMACIÓN</a></li>
+	<li><a href="CONTACTO">CONTACTO</a></li>
+	<li><a href="SERVICIOS">SERVICIOS</a></li>
+	</ol>
+	</div>
+	<!-- menu de login y singin -->
+	<div id="log">
+		<ul>
+			<li><a href="LOGIN">INICIAR SESIÓN</a></li>
+			<li><a href="#">USUARIO NUEVO</a></li>
+		</ul>
+	</div>
+</header>
+<!-- contenido de la pagina -->
+<div id="contenido">
+<img src="Recursos/imagen/login.jpeg" alt="sesion">
+	<div>
+	<!-- Formulario de registro -->
+	<form action="LOGIN.html" method="post" id="registro">
+		<table>
+			<caption>Usuario Nuevo</caption>
+			<tr>
+				<td><label for="user">Usuario</label></td>
+				<td><input type="text" name="user" id="user" required></td>
+			</tr>
+			<tr>
+				<td><label for="telefono">Telefono</label></td>
+				<td><input type="text" name="telefono" id="telefono" required></td>
+			</tr>
+			<tr>
+				<td><label for="correo">Correo</label></td>
+				<td><input type="email" name="correo" id="correo" required></td>
+			</tr>
+			<tr>
+				<td><label for="pass">Contraseña</label></td>
+				<td><input type="password" name="pass" id="pass" required	></td>
+			</tr>
+			<tr>
+				<th colspan="2"><button type="submit">Registrarse</button></th>
+			</tr>
+			<tr>
+				<th colspan="2"><a href="LOGIN" rel="noopener noreferrer">Cancelar</a></th>
+			</tr>
+		</table>
+	</form>
+	</div>
+</div>
+<!-- footer -->
+<footer>
+<ol>
+	<li><a href="HOME">Sobre Nosotros</a></li>
+	<li><a href="CONTACTO">Contacto</a></li>
+	<li><a href="#">Políticas</a></li>
+	<li><a href="#">Protección de datos</a></li>
+	<li><a href="CONTACTO">Soporte</a></li>
+</ol>
+<p>Desarrollado por Jesssid - 2024</p>
+</footer>
+<script type="text/javascript" src="code.js" ></script>
+</body>
+</html>

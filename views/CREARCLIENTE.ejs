@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title>HOME</title>
+	<link rel="stylesheet" href="Recursos/css/estilo.css">
+</head>
+<body lang="es-CO" dir="ltr">
+<header>
+	<div id="logo"></div>
+	<!-- menu principal -->
+	<div id="menu">
+		<ol>
+		<li><a href="/">INICIO</a></li>
+		<li><a href="GESTION">GESTIÓN DE INFORMACIÓN</a></li>
+		<li><a href="CONTACTO">CONTACTO</a></li>
+		<li><a href="SERVICIOS">SERVICIOS</a></li>
+		</ol>
+	</div>
+	<!-- menu de login y singin -->
+	<div id="log">
+		<%if(!login){%>
+			<ul>
+				<li><a href="LOGIN">INICIAR SESIÓN</a></li>
+				<li><a href="SINGIN">USUARIO NUEVO</a></li>
+			</ul>
+			<%}else{%>
+			<ul>
+				<li><a><%=usuario%> <%=rol%></a></li>
+				<li><a href="logout">CERRAR SESIÓN</a></li>
+			</ul>
+			<%}%>
+	</div>
+</header>
+<!-- contenido de la pagina -->
+<div id="contenido">
+	<img src="Recursos/imagen/login.jpeg" alt="TECNICO">
+	<div>
+	<h2>Clientes</h2>
+	<!-- Formulario para crear clientes nuevos -->
+	<form action="GESTION.html" method="post" id="cliente">
+		<table>
+            <tr>
+				<td><label for="cc">Identificación</label></td>
+				<td><input type="text" name="cc" id="cc" placeholder="Ingrese el documento" required></td>
+			</tr>
+			<tr>
+				<td><label for="nombre">Cliente</label></td>
+				<td><input type="text" name="nombre" id="nombre" placeholder="Ingrese el nombre" required></td>
+			</tr>
+			<tr>
+				<td><label for="email">Correo</label></td>
+				<td><input type="email" name="email" id="" placeholder="Ingrese el correo" required></td>
+			</tr>
+			<tr>
+				<td><label for="telefono">Telefono</label></td>
+				<td><input type="text" name="telefono" placeholder="Ingrese el telefono" required></td>
+			</tr>
+			<tr>
+				<td><label for="direccion">Direccón</label></td>
+				<td><input type="text" name="direccion" placeholder="Ingrese la dirección" required></td>
+			</tr>
+			<tr></tr>
+				<th colspan="2"><button type="submit">Enviar</button></th>
+			</tr>
+		</table>
+	</form>
+	</div>
+</div>
+<!-- footer -->
+<footer>
+	<ol>
+		<li><a href="HOME">Sobre Nosotros</a></li>
+		<li><a href="CONTACTO">Contacto</a></li>
+		<li><a href="#">Políticas</a></li>
+		<li><a href="#">Protección de datos</a></li>
+		<li><a href="CONTACTO">Soporte</a></li>
+	</ol>
+<p>Desarrollado por Jesssid - 2024</p>
+</footer>
+<script type="text/javascript" src="code.js" ></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title>HOME</title>
+	<link rel="stylesheet" href="Recursos/css/estilo.css">
+</head>
+<body lang="es-CO" dir="ltr">
+<header>
+<div id="logo"></div>
+<!-- menu principal -->
+<div id="menu">
+<ol>
+<li><a href="/">INICIO</a></li>
+<li><a href="GESTION">GESTIÓN DE INFORMACIÓN</a></li>
+<li><a href="CONTACTO">CONTACTO</a></li>
+<li><a href="SERVICIOS">SERVICIOS</a></li>
+</ol>
+</div>
+<!--
+	menu de login y singin; si la session esta iniciada solo muestra boton de cerrar
+-->
+ 
+<div id="log">
+	<%if(!login){%>
+	<ul>
+		<li><a href="LOGIN">INICIAR SESIÓN</a></li>
+		<li><a href="SINGIN">USUARIO NUEVO</a></li>
+	</ul>
+	<%}else{%>
+	<ul>
+		<li><a><%=usuario%> <%=rol%></a></li>
+		<li><a href="logout">CERRAR SESIÓN</a></li>
+	</ul>
+	<%}%>
+</div>
+</header>
+<!-- contenido de la pagina -->
+<div id="contenido">
+<img src="Recursos/imagen/tecnico.png" alt="TECNICO">
+<div>
+<h2>
+Quienes somos
+</h2>
+<p>Nuestra misión es ofrecer un servicio técnico de instalaciones y reparaciones de electrodomésticos de alta calidad, caracterizado por la eficiencia, la profesionalidad y la atención personalizada. Nos comprometemos a garantizar la satisfacción de nuestros clientes mediante soluciones rápidas y efectivas, utilizando tecnología avanzada y un equipo altamente capacitado. Trabajamos para mejorar la vida diaria de nuestros clientes al asegurar que sus electrodomésticos funcionen óptimamente y sin inconvenientes.</p>
+
+<p>Nuestra visión es ser la empresa líder en el sector de instalaciones y servicios técnicos de electrodomésticos, reconocida por nuestra excelencia en la atención al cliente y la innovación en nuestras soluciones. Aspiramos a expandir nuestra presencia a nivel nacional, estableciendo estándares de calidad y confiabilidad en cada uno de nuestros servicios. Buscamos convertirnos en el socio de confianza de nuestros clientes, contribuyendo al bienestar y comodidad de sus hogares con un compromiso continuo con la calidad y la mejora constante.</p>
+</div>
+</div>
+<!-- footer -->
+<footer>
+<ol>
+	<li><a href="HOME">Sobre Nosotros</a></li>
+	<li><a href="CONTACTO">Contacto</a></li>
+	<li><a href="#">Políticas</a></li>
+	<li><a href="#">Protección de datos</a></li>
+	<li><a href="CONTACTO">Soporte</a></li>
+</ol>
+<p>Desarrollado por Jesssid - 2024</p>
+</footer>
+
+</body>
+</html>
