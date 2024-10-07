@@ -80,6 +80,7 @@ input{
 	text-align: center;
 	margin-bottom: 5px;
 }
+
 label{width:120px;float:left;}
 input,textarea{width: 300px;margin: auto;border:1px solid #000000;}
 button{height: 40px;width: 150px;color: #c88bfa;}
@@ -126,6 +127,32 @@ input:hover{
 
 #info-instalaciones,#info-reparaciones{
 	display: none;
+}
+#block{
+	background-image: url(../imagen/imagelogin.png);
+	background-size:cover;
+	width: 500px;
+	height: 500px;
+	border-radius: 50%;
+	border: #000000 solid 2px;
+	padding: auto;
+	margin-top: 20px;
+	margin-left: 150px;
+	-webkit-box-shadow: 5px 5px 40px 30px rgba(139,139,139,0.7), inset 0px 0px 0px 46px rgba(139,139,139,0.64);
+box-shadow: 5px 5px 40px 30px rgba(139,139,139,0.7), inset 0px 0px 0px 46px rgba(139,139,139,0.64);
+}
+#block>ul{
+	margin: 0;padding: 0;list-style: none;margin-top: 350px;
+}
+#block>ul>li{
+	border-radius: 5px;
+	background-color:white; 
+	width:150px;
+	height:1.5em;
+	margin-top:5px; 
+	margin: auto;
+	text-align: center;
+	border:2px solid rgba(128,0,128); 
 }
 
 

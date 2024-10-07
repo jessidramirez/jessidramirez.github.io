@@ -36,8 +36,10 @@
 <!-- contenido de la pagina -->
 <div id="contenido">
 <div id="sevicio">
-    <a class="servicios" href="CONTRATOS">Ver Contratos</a>
-    <a class="servicios" href="#"  id="crear">Crear Contratos</a>
+    <%if(login){%>
+        <a class="servicios" href="CONTRATOS">Ver Contratos</a>
+        <a class="servicios" href="CREARCONTRATO"  id="crear">Crear Contratos</a>
+    <%}%>
     <h1 class="servicios" id="instalaciones">Servicio de Instalación</h1>
     <div class="descripcion" id="info-instalaciones">
         <p>Ofrecemos servicios profesionales de instalación para diversos equipos y dispositivos:</p>

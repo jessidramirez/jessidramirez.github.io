@@ -34,38 +34,48 @@
     </div>
 </header>
 <div id="contenido">
-	<div id="sevicio">
-    <!-- Tabla con informacion de los clientes registrados -->    
-	<table>
-        <caption>Datos de Clientes</caption>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Correo Electrónico</th>
-                <th>Teléfono</th>
-                <th>Dirección</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Datos de los clientes en una lista -->
-            <% for(var i = 0; i<clientes.length; i++){%>
-                <tr>
-                    <td><%=clientes[i].cedula%></td>
-                    <td><%=clientes[i].nombre%></td>
-                    <td><%=clientes[i].correo%></td>
-                    <td><%=clientes[i].telefono%></td>
-                    <td><%=clientes[i].direccion%></td>
-                </tr>
-            <%}%>
-
-            <tr>
-				<th colspan="5"><a href="CREARCLIENTE">AGREGAR CLIENTE</a></th>
-			</tr>
-            
-        </tbody>
-    </table>
-	</div>
+    <%if(login){%>
+        <div id="sevicio">
+            <!-- Tabla con informacion de los clientes registrados -->    
+            <table>
+                <caption>Datos de Clientes</caption>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Correo Electrónico</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Datos de los clientes en una lista -->
+                    <% for(var i = 0; i<clientes.length; i++){%>
+                        <tr>
+                            <td><%=clientes[i].cedula%></td>
+                            <td><%=clientes[i].nombre%></td>
+                            <td><%=clientes[i].correo%></td>
+                            <td><%=clientes[i].telefono%></td>
+                            <td><%=clientes[i].direccion%></td>
+                        </tr>
+                    <%}%>
+        
+                    <tr>
+                        <th colspan="5"><a href="CREARCLIENTE">AGREGAR CLIENTE</a></th>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>  
+    <%}else{%>
+        <div id="block">
+            <ul>
+                <li><a href="LOGIN">INICIAR SESIÓN</a></li>
+                <li><a href="SINGIN">USUARIO NUEVO</a></li>
+            </ul>
+        </div>
+    <%}%>
+	
 </div>
 
 <footer>

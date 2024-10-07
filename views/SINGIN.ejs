@@ -30,12 +30,16 @@
 <div id="contenido">
 <img src="Recursos/imagen/login.jpeg" alt="sesion">
 	<div>
-	<!-- Formulario de registro -->
-	<form action="LOGIN.html" method="post" id="registro">
+	<!-- Formulario de registro user telefono correo pass-->
+	<form action="registro" method="post" id="registro">
 		<table>
 			<caption>Usuario Nuevo</caption>
 			<tr>
-				<td><label for="user">Usuario</label></td>
+				<td><label for="user">Cedula</label></td>
+				<td><input type="text" name="cedula" id="cedula" required></td>
+			</tr>
+			<tr>
+				<td><label for="user">Nombre</label></td>
 				<td><input type="text" name="user" id="user" required></td>
 			</tr>
 			<tr>

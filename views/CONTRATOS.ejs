@@ -56,7 +56,17 @@
                 <td><%=ordenes[i].Direccion%></td>
                 <td><%=ordenes[i].Servicio%></td>
                 <td><%=ordenes[i].Tecnico%></td>
-                <td><%=ordenes[i].Fecha%></td>
+                <td><%=ordenes[i].Fecha.getDate()%>/<%=ordenes[i].Fecha.getMonth()%>/<%=ordenes[i].Fecha.getFullYear()%></td>
+                <% if(rol=='ADMINISTRADOR'){%>
+                    <form action="eliminar" method="post">
+
+                        <td> 
+                            <input name="id_orden" type="text" value="<%=ordenes[i].Orden%>" style="visibility: hidden;width: 10px;" readonly >
+                            <input type="submit" style="width: 100px;" value="Eliminar">
+                        </td>
+                    </form>    
+                <%}%>
+
             </tr>
         <%}%>
         </tbody>

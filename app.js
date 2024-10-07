@@ -60,6 +60,31 @@ app.post('/ingreso', async(req,res)=>{
         }
     })
 })
+app.post('/registro', async(req,res)=>{
+    const Cedula=req.body.cedula;
+    const Nombre=req.body.user;
+    const Telefono=req.body.telefono;
+    const Correo=req.body.correo;
+    const Contraseña=req.body.pass;
+
+    //INSERT INTO usuarios(cedula,nombre,correo,telefono,rol,contraseña) VALUES (?,?,?,?,?,?)
+
+    connection.query('SELECT * FROM usuarios WHERE correo=? OR cedula=?',[Correo,Cedula], async(error,results)=>{
+        if (results.length==0) {
+            connection.query('INSERT INTO usuarios(cedula,nombre,correo,telefono,rol,contraseña) VALUES (?,?,?,?,?,?)',[Cedula,Nombre,Telefono,Correo,'VISITANTE',Contraseña], async(error1,results)=>{
+                res.render('LOGIN',{
+                    alerta:true,
+                    mensaje:'El Usuario se registro correctamente'
+                })
+            })
+        } else {
+            res.render('SINGIN',{
+                alerta:true,
+                mensaje:'El Usuario ya esta registrado'
+            })
+        }
+    })
+})
 //Cerrar session
 app.get('/logout',(req,res)=>{
     req.session.destroy(()=>{
@@ -67,19 +92,47 @@ app.get('/logout',(req,res)=>{
     })
 })
 
+app.post('/eliminar',(req,res)=>{
+    const Orden=req.body.id_orden;
+    console.log('eliminar '+Orden);
+    connection.query('DELETE FROM ordenes WHERE id = ?',Orden, async(error,results)=>{
+        if (error) {
+            console.log(error.message);
+        } else {
+            if (req.session.loggedin) {
+                res.render('SERVICIOS',{
+                    login: true,
+                    usuario:req.session.name,
+                    rol:req.session.rol,
+                    id_usuario:req.session.id_usuario,
+                });
+            } else {
+                res.render('SERVICIOS',{
+                    login: false,
+                    usuario:'Debe iniciar sesión',
+                    rol:'',
+                    id_usuario:0,
 
+                });
+            }
+        }
+    })
+
+})
 //vistas
 app.get('/',(req,res)=>{
     if (req.session.loggedin) {
         res.render('HOME',{
             login: true,
-            name:req.session.name,
+            usuario:req.session.name,
+            rol:req.session.rol,
             id_usuario:req.session.id_usuario
         });
     } else {
         res.render('HOME',{
             login: false,
             name:'Debe iniciar sesión',
+            rol:req.session.rol,
             id_usuario:0
         });
     }
@@ -160,6 +213,21 @@ app.get('/CREARCLIENTE',(req,res)=>{
         });
     }
 })
+app.get('/CREARCONTRATO',(req,res)=>{
+    connection.query("SELECT * FROM clientes", async(error,results1)=>{
+    connection.query("SELECT * FROM usuarios WHERE rol = 'VISITANTE'", async(error,results2)=>{
+        if (req.session.loggedin) {
+            res.render('CREARCONTRATO',{
+                login: true,
+                usuario:req.session.name,
+                rol:req.session.rol,
+                id_usuario:req.session.id_usuario,
+                clientes: results1,
+                tecnicos: results2
+            });
+        }
+    })})
+})
 app.get('/SINGIN',(req,res)=>{
     if (req.session.loggedin) {
         res.render('SINGIN',{
@@ -176,19 +244,10 @@ app.get('/SINGIN',(req,res)=>{
     }
 })
 app.get('/LOGIN',(req,res)=>{
-    if (req.session.loggedin) {
-        res.render('LOGIN',{
-            login: true,
-            usuario:req.session.name,
-            id_usuario:req.session.id_usuario
-        });
-    } else {
-        res.render('LOGIN',{
-            login: false,
-            usuario:'Debe iniciar sesión',
-            id_usuario:0
-        });
-    }
+    res.render('LOGIN',{
+        alerta: false,
+        mensaje: ''
+    });
 })
 app.get('/GESTION',(req,res)=>{
     connection.query('SELECT * FROM clientes', async(error,results)=>{

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title>HOME</title>
+	<link rel="stylesheet" href="Recursos/css/estilo.css">
+</head>
+<body lang="es-CO" dir="ltr">
+<header>
+	<div id="logo"></div>
+	<!-- menu principal -->
+	<div id="menu">
+		<ol>
+		<li><a href="/">INICIO</a></li>
+		<li><a href="GESTION">GESTIÓN DE INFORMACIÓN</a></li>
+		<li><a href="CONTACTO">CONTACTO</a></li>
+		<li><a href="SERVICIOS">SERVICIOS</a></li>
+		</ol>
+	</div>
+	<!-- menu de login y singin -->
+	<div id="log">
+		<%if(!login){%>
+			<ul>
+				<li><a href="LOGIN">INICIAR SESIÓN</a></li>
+				<li><a href="SINGIN">USUARIO NUEVO</a></li>
+			</ul>
+			<%}else{%>
+			<ul>
+				<li><a><%=usuario%> <%=rol%></a></li>
+				<li><a href="logout">CERRAR SESIÓN</a></li>
+			</ul>
+			<%}%>
+	</div>
+</header>
+<!-- contenido de la pagina -->
+<div id="contenido">
+	<div>
+	<h2>CREAR CONTRATO</h2>
+	<!-- Formulario para crear Ordenes nuevos -->
+	<form action="GESTION.html" method="post" id="cliente">
+		<table>
+            <tr>
+				<td><label for="cc">ID Cliente</label></td>
+				<td><input type="text" name="cc" id="cc" placeholder="Ingrese el documento" required></td>
+			</tr>
+			<tr>
+				<td><label for="cc">Cliente</label></td>
+				<td>
+					<input type="text" id="nombreCliente" disabled>
+					<input type="text" id="direccionCliente" disabled>
+				</td>
+			</tr>
+
+			<tr>
+				<td><label for="servicio">Servicios</label></td>
+				<td><input list="servicios" name="servicio" id="servicio" placeholder="Selecciona un servicio">
+					<datalist id="servicios">
+						<option value="Instalación de sistema de seguridad">
+						<option value="Reparación de aire acondicionado">
+						<option value="Instalación de red de fibra óptica">
+						<option value="Reparación de sistema eléctrico">
+						<option value="Instalación de cámaras de seguridad">
+						<option value="Instalación de sistema de videovigilancia">
+						<option value="Reparación de sistema de calefacción">
+						<option value="Instalación de sistema de alarma">
+						<option value="Reparación de circuito eléctrico">
+						<option value="Instalación de antena satelital">
+						<option value="Reparación de cableado de red">
+						<option value="Instalación de router WiFi">
+						<option value="Reparación de cámaras de seguridad">
+						<option value="Instalación de red de datos">
+						<option value="Reparación de sistema de seguridad">
+						<option value="Instalación de equipo de sonido">
+						<option value="Reparación de luces automáticas">
+						<option value="Instalación de sensores de movimiento">
+						<option value="Reparación de sistema de video">
+						<option value="Instalación de generador eléctrico">
+					</datalist>
+				</td>
+			</tr>
+			<td><label for="tecnico">Tecnico</label></td>
+			<td><input list="tecnicos" name="tecnico" id="tecnico" placeholder="Selecciona un tecnico">
+				<datalist id="tecnicos">
+					<%for(var i = 0; i<tecnicos.length; i++){%>
+                        <option><%=tecnicos[i].nombre%></option>
+                    <%}%>
+				</datalist>
+			</td>
+			<tr>
+				<td><label for="fecha">Fecha</label></td>
+				<td><input type="date" name="fecha" id="fecha"required></td>
+			</tr>
+			<tr>
+				<th colspan="2"><button type="submit">BUSCAR</button></th>
+			</tr>
+				
+		</table>
+	</form>
+	</div>
+</div>
+<!-- footer -->
+<footer>
+	<ol>
+		<li><a href="HOME">Sobre Nosotros</a></li>
+		<li><a href="CONTACTO">Contacto</a></li>
+		<li><a href="#">Políticas</a></li>
+		<li><a href="#">Protección de datos</a></li>
+		<li><a href="CONTACTO">Soporte</a></li>
+	</ol>
+<p>Desarrollado por Jesssid - 2024</p>
+</footer>
+<script type="text/javascript" src="code.js" ></script>
+<script>
+	// Paso 1: Crear una lista de clientes desde el lado del servidor y enviarla al frontend
+	var clientes = [
+		<% clientes.forEach(function(cliente) { %>
+			{ cedula: '<%= cliente.cedula %>', nombre: '<%= cliente.nombre %>', direccion:'<%= cliente.direccion %>' },
+		<% }) %>
+	];
+	
+	// Paso 2: Detectar cambios en el input y buscar la cédula
+	document.getElementById('cc').addEventListener('input', function() {
+		var cedulaIngresada = this.value;
+		var nombreCliente = '';
+		var direccionCliente = '';
+	
+		// Paso 3: Buscar el cliente por cédula
+		for (var i = 0; i < clientes.length; i++) {
+			if (clientes[i].cedula === cedulaIngresada) {
+				nombreCliente = clientes[i].nombre;
+				direccionCliente = clientes[i].direccion;
+				break;
+			}
+		}
+	
+		// Paso 4: Mostrar el nombre del cliente si se encontró
+		document.getElementById('nombreCliente').value = nombreCliente;
+		document.getElementById('direccionCliente').value = direccionCliente;
+	});
+</script>
+</body>
+</html>
