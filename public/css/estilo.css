@@ -154,6 +154,20 @@ box-shadow: 5px 5px 40px 30px rgba(139,139,139,0.7), inset 0px 0px 0px 46px rgba
 	text-align: center;
 	border:2px solid rgba(128,0,128); 
 }
-
+#boton{
+color: #000000;
+font-style: oblique;
+background-color:#c88bfa;
+border-radius: 10px;
+}
+.boton2:hover{
+	background-color: #c88bfa;
+	color: #000000;
+	text-shadow:
+	-1px -1px 1px #810a6d,
+	0px 3px 1px rgba(255, 0, 100, 0.5),
+	3px 3px 4px rgba(255, 0, 100, 0.7),
+	0px 0px 6px rgba(255, 0, 100, 0.4);
+}
 
 
